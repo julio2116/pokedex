@@ -1,0 +1,16 @@
+.botton{
+    cursor: pointer;
+}
+.bottons{
+    display: flex;
+    gap: 10px;
+}
+.pokedex{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.teste_img{
+    width: 150px;
+}
