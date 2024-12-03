@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react"
 
-const Teste2 = (props) => {
-    const [teste, setTeste] = useState(props.info[0])
-    useEffect(()=>{
-        setTeste(props.info[0])
-    },[teste])
-    console.log(props.info[0])
+const Teste2 = (info) => {
+    const [teste, setTeste] = useState(Array.from(info.info))
+    useEffect(()=>{setTeste(Array.from(info.info))},[info])
+
     return(
         <>
             <h1>{teste}</h1>

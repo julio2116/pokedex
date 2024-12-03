@@ -7,7 +7,7 @@ const Teste = () => {
   const [info, setInfo] = useState({});
   const [poke, setPoke] = useState({});
   const [evolution, setEvolution] = useState({});
-  let names = [];
+  const [names, setNames] = useState([]);
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon-species/${count}/`)
@@ -31,6 +31,7 @@ const Teste = () => {
   }, [info])
 
   useEffect(()=>{
+  let names =[];
   if(evolution?.chain){
     names.push(evolution.chain.species.name);
     if(evolution.chain.evolves_to.length >= 1){
@@ -38,7 +39,7 @@ const Teste = () => {
         if(evolution.chain.evolves_to[0].evolves_to.length >= 1){
             names.push(evolution.chain.evolves_to[0].evolves_to[0].species.name);
         }
-        console.log(names)
+        setNames(names)
     }}},[evolution])
 
   return (
@@ -53,7 +54,8 @@ const Teste = () => {
               <span className={styles.botton} onClick={() => {if (count < 1025) setCount(count + 1);}}>next</span>
             </span>
           </span>
-          <Teste2 info={names}/>
+          <Teste2 info={names} />
+          {console.log(names)}
         </>
       )}
     </>
