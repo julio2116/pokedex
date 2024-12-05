@@ -3,7 +3,7 @@ import styles from "../components/Home.module.css";
 import EvolutionChain from './EvolutionChain.jsx'
 
 const Teste = () => {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(133);
   const [info, setInfo] = useState({});
   const [poke, setPoke] = useState({});
   const [evolution, setEvolution] = useState({});
