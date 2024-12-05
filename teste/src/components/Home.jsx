@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../components/Teste.module.css";
+import styles from "../components/Home.module.css";
 import EvolutionChain from './EvolutionChain.jsx'
 
 const Teste = () => {
@@ -32,15 +32,16 @@ const Teste = () => {
 
   useEffect(()=>{
   let names =[];
-  if(evolution?.chain){
-    names.push(evolution.chain.species.name);
-    if(evolution.chain.evolves_to.length >= 1){
-        names.push(evolution.chain.evolves_to[0].species.name);
-        if(evolution.chain.evolves_to[0].evolves_to.length >= 1){
-            names.push(evolution.chain.evolves_to[0].evolves_to[0].species.name);
-        }
-        setNames(names)
-    }}},[evolution])
+    if(evolution?.chain?.species){
+      names.push(evolution.chain.species.name);
+    if(evolution?.chain?.evolves_to?.length > 0){
+      names.push(evolution.chain.evolves_to[0].species.name);
+    }
+    if(evolution?.chain?.evolves_to[0]?.evolves_to?.length > 0){
+      names.push(evolution.chain.evolves_to[0].evolves_to[0].species.name);
+    }
+  setNames(names)
+  }},[evolution])
 
   return (
     <>
@@ -50,8 +51,8 @@ const Teste = () => {
             <img className={styles.teste_img} src={`${poke.sprites.front_default}`} alt="" />
             <h1 style={{display:'inline'}}>{poke.forms[0].name}</h1>
             <span className={styles.buttons}>
-              <button className={styles.button} onClick={() => {if (count > 1) setCount(count - 1);}}>prev</button>
-              <button className={styles.button} onClick={() => {if (count < 1025) setCount(count + 1);}}>next</button>
+              <button className={styles.button} onClick={() => {if (count > 1) setCount(poke.id - 1)}}>prev</button>
+              <button className={styles.button} onClick={() => {if (count < 1025) setCount(poke.id + 1)}}>next</button>
             </span>
           </span>
           <EvolutionChain info={names} />
