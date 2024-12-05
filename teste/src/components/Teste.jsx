@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "../components/Teste.module.css";
-import Teste2 from './Teste2.jsx'
+import EvolutionChain from './EvolutionChain.jsx'
 
 const Teste = () => {
   const [count, setCount] = useState(1);
@@ -49,13 +49,12 @@ const Teste = () => {
           <span className={styles.pokedex}>
             <img className={styles.teste_img} src={`${poke.sprites.front_default}`} alt="" />
             <h1 style={{display:'inline'}}>{poke.forms[0].name}</h1>
-            <span className={styles.bottons}>
-              <span className={styles.botton} onClick={() => {if (count > 1) setCount(count - 1);}}>prev</span>
-              <span className={styles.botton} onClick={() => {if (count < 1025) setCount(count + 1);}}>next</span>
+            <span className={styles.buttons}>
+              <button className={styles.button} onClick={() => {if (count > 1) setCount(count - 1);}}>prev</button>
+              <button className={styles.button} onClick={() => {if (count < 1025) setCount(count + 1);}}>next</button>
             </span>
           </span>
-          <Teste2 info={names} />
-          {console.log(names)}
+          <EvolutionChain info={names} />
         </>
       )}
     </>

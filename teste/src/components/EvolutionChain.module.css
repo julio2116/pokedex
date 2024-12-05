@@ -1,0 +1,9 @@
+.container{
+    display: flex;
+    gap: 20px;
+    text-decoration: none;
+    list-style: none;
+    justify-self: center;
+    margin: 0 20px;
+    position: relative;
+}
