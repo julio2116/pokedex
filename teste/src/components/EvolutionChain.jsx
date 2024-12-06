@@ -7,8 +7,9 @@ const EvolutionChain = ({info}) => {
     useEffect(()=>{setTeste(Array.from(info))},[info])
     return(
         <>
-        <div className={styles.container} style={{ maxWidth: '100vw' }}>
-            {teste.map((item, index)=>{return <Card key={index} info={item} positionLeft={`${index * -45}px`} i={index} />})}
+        <div className={styles.container}>
+            {teste.map((item, index)=>{
+                return <Card key={index} info={item} positionLeft={`${index * -45}px`} i={index} />})}
         </div>
         </>
     )

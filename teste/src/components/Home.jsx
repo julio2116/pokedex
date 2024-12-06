@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import styles from "../components/Home.module.css";
-import EvolutionChain from './EvolutionChain.jsx'
+import EvolutionChain from './EvolutionChain.jsx';
+import Filter from './Fiter.jsx'
 
 const Teste = () => {
-  const [count, setCount] = useState(133);
+  const [count, setCount] = useState(1);
   const [info, setInfo] = useState({});
   const [poke, setPoke] = useState({});
   const [evolution, setEvolution] = useState({});
@@ -11,8 +12,8 @@ const Teste = () => {
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon-species/${count}/`)
-      .then((response) => response.json())
-      .then((body) => setInfo(body));
+      .then(response => response.json())
+      .then(body => setInfo(body));
     }, [count]);
 
   useEffect(()=>{
@@ -50,14 +51,17 @@ const Teste = () => {
       {poke?.forms && (
         <>
           <span className={styles.pokedex}>
-            <img className={styles.teste_img} src={`${poke.sprites.front_default}`} alt="" />
+            <img className={styles.teste_img} src={poke.sprites.front_default} alt="" />
             <h1 style={{display:'inline'}}>{poke.forms[0].name}</h1>
             <span className={styles.buttons}>
-              <button className={styles.button} onClick={() => {if (count > 1) setCount(poke.id - 1)}}>prev</button>
-              <button className={styles.button} onClick={() => {if (count < 1025) setCount(poke.id + 1)}}>next</button>
+              <button className={styles.button} onClick={() => 
+                {if (count > 1) setCount(poke.id - 1)}}>prev</button>
+              <button className={styles.button} onClick={() => 
+                {if (count < 1025) setCount(poke.id + 1)}}>next</button>
             </span>
           </span>
           <EvolutionChain info={names} />
+          <Filter />
         </>
       )}
     </>
