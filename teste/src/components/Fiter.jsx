@@ -12,7 +12,6 @@ const Filter = () =>{
     },[urlPokemon]);
 
     const filternames = (listItens, exemplo) => {
-        console.log(listItens[0].name)
         let result = listItens.filter((valor) => {
             exemplo = exemplo.toLowerCase();
             return valor.name.includes(exemplo);
@@ -31,12 +30,10 @@ const Filter = () =>{
 
     return (
         <>
-            <input onChange={(event) => setUrlPokemon(event.target.value)} type="search" id="busca" list="paises"></input>
-            <datalist name="pokemon" id="pokemon">
-                {getPokemon?.results &&
-                (getPokemon.results.map((item, index)=>{return <><option value={item.url} key={index}>{item.name}</option></>}))}
-                {console.log(allNames)}
-            </datalist>
+            <input style={{width:'200px'}}
+            onChange={(event) => setUrlPokemon(event.target.value)}
+            type="search" id="busca" list="paises" placeholder="Pesquisar por um pokémon"></input>
+            {console.log(allNames)}
         </>
     )
 }
