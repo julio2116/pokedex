@@ -35,7 +35,9 @@ const Teste = () => {
     if(evolution?.chain?.species){
       names.push(evolution.chain.species.name);
     if(evolution?.chain?.evolves_to?.length > 0){
-      names.push(evolution.chain.evolves_to[0].species.name);
+      for(let i = 0; i < evolution.chain.evolves_to.length; i++){
+        names.push(evolution.chain.evolves_to[i].species.name);
+      }
     }
     if(evolution?.chain?.evolves_to[0]?.evolves_to?.length > 0){
       names.push(evolution.chain.evolves_to[0].evolves_to[0].species.name);

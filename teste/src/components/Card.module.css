@@ -1,11 +1,8 @@
 .card {
     display: flex;
-    position: absolute;
     height: 280px;
     width: 200px;
     background: linear-gradient(in hsl, blue, red);
-    margin-top: 20px;
-    margin-bottom: 20px;
     border-radius: 10px;
     border: 1px solid black;
     transform: translateX(0px) perspective(800px) translate3d(10px, 0, 20px) rotateY(21deg);
@@ -13,6 +10,8 @@
     align-items: center;
     flex-direction: column;
     padding: 10px;
+    margin: 20px -10px;
+    cursor: pointer;
 }
 .card_img{
     filter: drop-shadow(1px 1px 20px black)
