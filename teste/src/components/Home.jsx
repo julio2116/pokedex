@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "../components/Home.module.css";
 import EvolutionChain from './EvolutionChain.jsx';
-import Filter from './Fiter.jsx'
+import Filter from './Filter.jsx'
 
 const Teste = () => {
   const [count, setCount] = useState(1);
@@ -60,8 +60,8 @@ const Teste = () => {
                 {if (count < 1025) setCount(poke.id + 1)}}>next</button>
             </span>
           </span>
-          <EvolutionChain info={names} />
           <Filter />
+          <EvolutionChain info={names} />
         </>
       )}
     </>

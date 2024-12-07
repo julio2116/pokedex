@@ -1,0 +1,13 @@
+.filter_poke_list{
+    height: 300px;
+    width: 200px;
+    overflow-y: scroll;
+    position: absolute;
+    margin: 0 10px;
+    padding: 10px;
+    list-style: none;
+}
+.filter_itemlist:hover{
+    scale: 1.05;
+    cursor: pointer;
+}

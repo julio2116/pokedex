@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import styles from '../components/Filter.module.css'
 
 const Filter = () =>{
     const [getPokemon, setGetPokemon] = useState({});
@@ -21,7 +22,7 @@ const Filter = () =>{
     }
     useEffect(()=>{
         let a = []
-        if(getPokemon?.results){
+        if(getPokemon?.results && urlPokemon.length > 0){
             a = filternames(getPokemon.results, urlPokemon);
         }
         setAllNames(a);
@@ -33,7 +34,15 @@ const Filter = () =>{
             <input style={{width:'200px'}}
             onChange={(event) => setUrlPokemon(event.target.value)}
             type="search" id="busca" list="paises" placeholder="Pesquisar por um pokémon"></input>
-            {console.log(allNames)}
+            {allNames[0]?.name &&
+            (<>
+                <ul className={styles.filter_poke_list}>
+                    {allNames.map((pokemon, index)=>{
+                    return <>
+                    <li className={styles.filter_itemlist} key={index}>{pokemon.name}</li>
+                    </>})}
+                </ul>
+            </>)}
         </>
     )
 }
