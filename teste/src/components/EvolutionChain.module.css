@@ -1,7 +1,12 @@
 .container{
     display: flex;
     margin: 20px;
-    justify-content: center;
     flex-wrap: wrap;
-    max-width: 100vw;
+    max-width: 80vw;
+    justify-content: center;
+}
+.parent_container{
+    max-width: 100%;
+    justify-content: center;
+    display: grid;
 }
