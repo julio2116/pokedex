@@ -7,7 +7,7 @@ const Filter = () =>{
     const [allNames, setAllNames] = useState('')
 
     useEffect(()=>{
-        fetch(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1000`)
+        fetch(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1302`)
         .then(response => response.json())
         .then(body => setGetPokemon(body))
     },[urlPokemon]);
@@ -27,13 +27,20 @@ const Filter = () =>{
         }
         setAllNames(a);
     }, [getPokemon])
-
+    function handleForm(e){
+        e.preventDefault();
+        console.log(e.target[0].value);
+    }
 
     return (
         <>
+        <form action="" onSubmit={handleForm}>
             <input style={{width:'200px'}}
             onChange={(event) => setUrlPokemon(event.target.value)}
-            type="search" id="busca" list="paises" placeholder="Pesquisar por um pokémon"></input>
+            type="search" placeholder="Pesquisar por um pokémon"></input>
+            {console.log()}
+
+        </form>
             {allNames[0]?.name &&
             (<>
                 <ul className={styles.filter_poke_list}>
